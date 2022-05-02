@@ -1,5 +1,7 @@
 // No cambies los nombres de las funciones.
 
+const { convertToRecursiveGlob } = require("@11ty/eleventy/src/TemplatePath");
+
 function deObjetoAmatriz(objeto){
   // Escribe una función que convierta un objeto en una matriz, donde cada elemento representa 
   // un par clave-valor en forma de matriz.
@@ -11,9 +13,14 @@ function deObjetoAmatriz(objeto){
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
   var array=[];
-  for (let clave in objeto){
-    return array[clave, objeto[clave]]
+  for (var clave in objeto){
+   array.push([`${clave}`, objeto[clave]])
   }
+  return array;
+  // var result= object.keys(objeto).map(function(key){
+  //   return [Number(key), objeto[key]];
+  // });
+
 }
 
 
@@ -22,6 +29,8 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var separar= string.split('')
+
 }
 
 
@@ -30,6 +39,18 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var separar= s.split('')
+   var stringmay=[]
+   var stringmin=[]
+  for (var i=0; i< separar.length; i++){
+    if(separar[i].toUpperCase()===separar[i]){
+      stringmay.push(separar[i])
+    } else {
+      stringmin.push(separar[i])
+    }
+  }
+  var unimos=stringmay.join("")+stringmin.join("")
+return unimos
 }
 
 
@@ -39,6 +60,14 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  var separo= str.split(" ")
+  var divido=[]
+  for (var i=0; i< separo.length; i++){
+
+    divido.push(separo[i].split("").reverse().join(""))
+  }
+return divido.join(" ")
+
 } 
 
 
@@ -47,6 +76,19 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  console.log(numero+" primerooooooooooooooo")
+  numero.toString()
+  var invertido= numero.split('').reverse().join('')
+  console.log(numero+ "aqui iiiiiiiiiiiiiiiii")
+  //for (var i=0; i<numero.length; i++){
+    if (numero===invertido){
+      console.log(numero+"allaaaaaaaaaaaaaa")
+    return "Es capicua";
+  } 
+    else {
+      return "No es capicua"
+    }
+ // }
 }
 
 
@@ -54,6 +96,17 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  var letra=cadena.split("")
+  console.log(letra+"  eliminar letraaaaaaaa")
+  var letranueva=[];
+  for(var i=0; i<letra.length;i++){
+    if(letra[i]==!"a"&"b"&"c"){
+      letranueva.push(letra[i])
+    }
+  }
+   //letra.replace("a","")
+   console.log(letra+"  ya lo elimineee a aaaa")
+   return letranueva.join("")
 }
 
 
