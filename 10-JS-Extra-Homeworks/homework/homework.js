@@ -30,6 +30,29 @@ function numberOfCharacters(string) {
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
   var separar= string.split('')
+// tengo q armar un objeto q tenga la letra y la cantidad de veces q se cuenta, uso this?
+var objeto={}
+for (var i=0; i< separar.length;i++){
+  if (objeto.hasOwnProperty(separar[i])){ //si es q existe
+    objeto[separar[i]]=objeto[separar[i]]+1
+  } else {
+    objeto[separar[i]]=1
+  }
+  // var contador=0
+  // // for (var j=i+1; j<separar.length; j++){
+  //   if (separar[i]===separar[j]){
+  //     contador= contador+1
+  //   } 
+  //} 
+//   objeto.separar[i]=contador
+
+ }
+console.log(objeto+" aquiiiiiiiiiiiiiiiiiiii")
+return objeto
+
+  // var array=[]
+  // for (var clave in objeto)
+  // array.push(`${clave}`, objeto[clave])
 
 }
 
@@ -76,13 +99,10 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
-  console.log(numero+" primerooooooooooooooo")
-  numero.toString()
-  var invertido= numero.split('').reverse().join('')
-  console.log(numero+ "aqui iiiiiiiiiiiiiiiii")
+  var string= numero.toString()
+  var invertido= string.split('').reverse().join('')
   //for (var i=0; i<numero.length; i++){
-    if (numero===invertido){
-      console.log(numero+"allaaaaaaaaaaaaaa")
+    if (string===invertido){
     return "Es capicua";
   } 
     else {
@@ -97,15 +117,13 @@ function deleteAbc(cadena){
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
   var letra=cadena.split("")
-  console.log(letra+"  eliminar letraaaaaaaa")
   var letranueva=[];
   for(var i=0; i<letra.length;i++){
-    if(letra[i]==!"a"&"b"&"c"){
+    if(letra[i]!=="a"&letra[i]!=="b"&letra[i]!=="c"){
       letranueva.push(letra[i])
     }
   }
    //letra.replace("a","")
-   console.log(letra+"  ya lo elimineee a aaaa")
    return letranueva.join("")
 }
 
@@ -114,6 +132,12 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+ // for(var i=0; i<arr.length; i++){
+   // for (var j=i+1; j< arr.length; j++){
+ var ordenado= arr.sort((a,b)=>a.length- b.length)
+ return ordenado 
+ //   }
+//  }
 }
 
 
@@ -123,6 +147,16 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+  var arreglo3=arreglo1.concat(arreglo2);
+  var nuevaarray=[]
+  for (var i=0; i< arreglo3.length; i++){
+    for (var j=i+1; j< arreglo3.length; j++){
+      if(arreglo3[i]===arreglo3[j]){
+        nuevaarray.push(arreglo3[i])
+      }
+    }
+  }
+  return nuevaarray;
 }
 
 
